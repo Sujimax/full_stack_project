@@ -1,0 +1,96 @@
+body {
+    font-family: 'Poppins', sans-serif;
+     background:  #ffe8cd;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #007bff;
+    margin: 30px 0;
+    text-align: center;
+    font-size: 32px;
+}
+
+/* ===== Complaint Card ===== */
+.complaint-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 55%;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.complaint-box:hover {
+    transform: translateY(-3px);
+}
+
+/* ===== Flex Layout ===== */
+.complaint-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.details {
+    flex: 1;
+}
+
+.problem-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.details p {
+    font-size: 16px;
+    color: #444;
+    margin: 13px 0;
+}
+
+.details strong {
+    display: inline-block;
+    width: 120px;
+    color: #222;
+}
+
+/* ===== Status Badges (NOT buttons) ===== */
+.status-pending,
+.status-in-progress,
+.status-solved {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.status-pending {
+    background-color: #ffe3e3;
+    color: #c62828;
+}
+
+.status-in-progress {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.status-solved {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+}
+
+/* ===== Image ===== */
+.image img {
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+

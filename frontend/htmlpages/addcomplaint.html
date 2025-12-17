@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rural Resolve</title>
+  <link rel="icon" href="../images/bgi.png" alt="Village website">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/addcomplaint.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/bgi.png" alt="Logo" height="35px" width="35px">
+        <h3 class="logo-text">Rural Resolve</h3>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="dashboard.html" class="active">🏠 Home</a></li>
+        <li><a href="addcomplaint.html">➕ Add Complaint</a></li>
+        <li><a href="my_complaint.html">🙋‍♀️ My Complaint</a></li>
+        <li><a href="complaint_list.html">📋 Complaint List</a></li>
+        <!-- <li><a href="#">📊 Status</a></li>
+        <li><a href="#">🔐 Admin</a></li> -->
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Add a Complaint</h1>
+
+  <div class="class-name" id="add-complaint">
+    <form>
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="problem-name">Problem Type:</label>
+      <select id="problem-name" name="problem-name" required>
+        <option value="">-- Select Problem Type --</option>
+        <option value="water">Water Issue</option>
+        <option value="road">Road Damage</option>
+        <option value="electricity">Electricity Issue</option>
+        <option value="waste">Waste Management</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="photo">Upload Photo:</label>
+      <input type="file" id="photo" name="photo">
+
+      <label for="description">Problem Description:</label>
+      <textarea id="description" name="description" rows="4" placeholder="Describe your problem..." required></textarea>
+
+      <!--  Added location details here -->
+      <label for="district">District:</label>
+      <select id="district" name="district" required>
+        <option value="">-- Select District --</option>
+        <option value="chennai">Chennai</option>
+        <option value="coimbatore">Coimbatore</option>
+        <option value="madurai">Madurai</option>
+        <option value="tiruchirappalli">Tiruchirappalli</option>
+        <option value="salem">Salem</option>
+        <option value="erode">Erode</option>
+        <option value="vellore">Vellore</option>
+      </select>
+
+      <label for="village">Village:</label>
+      <select id="village" name="village" required>
+        <option value="">-- Select Village --</option>
+      </select>
+
+      <label for="doorno">Door Number:</label>
+      <input type="text" id="doorno" name="doorno" placeholder="Enter your door number" required>
+
+      <button type="submit">Submit Complaint</button>
+    </form>
+  </div>
+
+</body>
+
+<script src="../javascript/add_complaint.js"></script>
+
+</html>

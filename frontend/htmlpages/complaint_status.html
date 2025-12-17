@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Complaint Status</title>
+  <link rel="icon" href="../images/bgi.png">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/complaint_status.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/bgi.png" alt="Logo" height="35" width="35">
+        <h3 class="logo-text">Rural Resolve</h3>
+      </div>
+      <ul class="nav-links">
+        <li><a href="dashboard.html" class="active">🏠 Home</a></li>
+        <li><a href="addcomplaint.html">➕ Add Complaint</a></li>
+        <li><a href="complaint_list.html">📋 Complaint List</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Complaint Status Management (Admin)</h1>
+
+  <div class="table-container">
+    <table id="complaints-table">
+      <thead>
+        <tr>
+          <th>User_Id</th>
+          <th>Problem Type</th>
+          <th>Name</th>
+          <th>District</th>
+          <th>Village</th>
+          <th>Door No</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic complaint rows will appear here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="../javascript/complaint_status.js"></script>
+</body>
+
+</html>

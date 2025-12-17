@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complaint Comment Page</title>
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+
+<header>
+  Rural Resolve | <a href="complaint_list.html" style="color:white;">Back</a>
+</header>
+
+<h1>Complaint Discussion</h1>
+
+<div class="container">
+
+  <!-- Complaint details -->
+  <h3 id="problemType"></h3>
+  <p><b>District:</b> <span id="district"></span></p>
+  <p><b>Village:</b> <span id="village"></span></p>
+  <p><b>Date:</b> <span id="date"></span></p>
+  <p><b>Description:</b> <span id="description"></span></p>
+  <img id="problemImage" alt="Problem Image">
+
+  <hr>
+
+  <h3>Comments</h3>
+  <div id="commentsContainer"></div>
+
+  <hr>
+
+  <textarea id="commentText" placeholder="Write your comment..."></textarea><br><br>
+  <button id="postComment">Post Comment</button>
+
+</div>
+
+<script src="../javascript/comment.js"></script>
+</body>
+</html>

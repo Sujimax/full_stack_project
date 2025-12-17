@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Complaint</title>
+  <link rel="icon" href="../images/bgi.png" alt="Village website">
+  <link rel="stylesheet" href="../css/addcomplaint.css" />
+</head>
+<body>
+
+  <div class="class-name">
+    <h1>Edit Complaint</h1>
+    <form id="editComplaintForm">
+
+      <label for="problem_type">Problem Type</label>
+      <input type="text" id="problem_type" name="problem_type" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" are name="description" rows="4" required></textarea>
+
+      <label for="district">District</label>
+      <input type="text" id="district" name="district" required>
+
+      <label for="village">Village</label>
+      <input type="text" id="village" name="village" required>
+
+      <label for="door_no">Door No</label>
+      <input type="text" id="door_no" name="door_no" required>
+
+      <button type="submit">Update Complaint</button>
+    </form>
+    <p id="statusMessage" style="color:green; margin-top:10px;"></p>
+  </div>
+
+  <script src="../javascript/edit_complaint.js"></script>
+</body>
+</html>
