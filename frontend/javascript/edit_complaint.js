@@ -1,58 +1,69 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const form = document.getElementById("editComplaintForm");
-  const complaintId = new URLSearchParams(window.location.search).get("id")
+  const complaintId = new URLSearchParams(window.location.search).get("id");
+
+  // Get JWT token
+  const token = localStorage.getItem("access_token");
+  if (!token) {
+    alert("Please login first");
+    window.location.href = "login.html";
+    return;
+  }
+
+  // Fetch existing complaint data
+  if (complaintId) {
+    try {
+      const res = await fetch(`http://127.0.0.1:8000/complaints/${complaintId}`, {
+        headers: { "Authorization": `Bearer ${token}` }
+      });
+      if (!res.ok) throw new Error("Failed to fetch complaint");
+      const data = await res.json();
+
+      // form.name.value = data.name;
+      form.problem_type.value = data.problem_type;
+      form.description.value = data.description;
+      form.district.value = data.district;
+      form.village.value = data.village;
+      form.door_no.value = data.door_no;
+
+    } catch (err) {
+      console.error(err);
+      alert("Error loading complaint");
+    }
+  }
 
   // Handle form submit
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const updatedData = {
-      name: form.name.value,
+      // name: form.name.value,
       problem_type: form.problem_type.value,
       description: form.description.value,
-      district:form.district.value,
-      village:form.village.value,
-      door_no:form.door_no.value
+      district: form.district.value,
+      village: form.village.value,
+      door_no: form.door_no.value
     };
 
     try {
       const res = await fetch(`http://127.0.0.1:8000/complaints/${complaintId}`, {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify(updatedData)
       });
 
       const data = await res.json();
-
       if (!res.ok) throw new Error(data.detail || "Failed to update complaint");
 
       alert("Updated successfully!");
-      window.location.href = "my_complaint.html"; // redirect after update
+      window.location.href = "my_complaint.html";
 
-    } catch (error) {
-      console.error(error);
-      alert("Error updating complaint: " + error.message);
+    } catch (err) {
+      console.error(err);
+      alert("Error updating complaint: " + err.message);
     }
   });
-
-  if(complaintId){
-    fetch(`http://127.0.0.1:8000/complaints/${complaintId}`)
-    .then(res => res.json())
-    .then(data => {
-     
-      const prob_type = document.getElementById("problem_type")
-      const descrip = document.getElementById("description")
-      const district = document.getElementById("district")
-      const village = document.getElementById("village")
-      const doorno = document.getElementById("door_no")
-
-      prob_type.value = data.problem_type
-      district.value = data.district
-      village.value = data.village
-      doorno.value = data.door_no
-      descrip.value = data.description
-    })
-  }
 });

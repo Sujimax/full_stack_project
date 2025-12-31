@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/navbar.css" />
   <link rel="stylesheet" href="../css/admin.css" />
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <header class="admin-navbar">
-    <h2>Admin Dashboard</h2>
-    <nav>
-      <a href="complaint_status.html">Complaint Status</a>
-      <a href="dashboard.html">Logout</a>
+  <header>
+    <nav class="navbar">
+
+      <!-- LEFT -->
+      <div class="nav-left">
+        <div class="logo">
+          <img src="../images/bgi.png" alt="Logo">
+          <h1 class="page-title">Rural Resolve</h1>
+        </div>
+
+        <!-- MENU BUTTON (JS BASED) -->
+        <button id="menuBtn" class="hamburger">☰</button>
+      </div>
+
+      <!-- CENTER LINKS -->
+      <ul class="nav-links">
+        <li><a href="../../index.html">Back To Home</a></li>
+        <li><a href="logout.html" class="login-btn">Logout</a></li>
+      </ul>
+
     </nav>
   </header>
 
-  <h1>Admin Overview</h1>
+
+
+  <h2>Admin Overview</h2>
 
   <!-- ✅ Summary Boxes -->
   <div class="summary-box">
@@ -38,7 +56,7 @@
     </div>
   </div>
 
-  <h1>Recent Complaints</h1>
+  <h2>Recent Complaints</h2>
 
   <!-- Table -->
   <div class="table-container">
@@ -53,6 +71,7 @@
           <th>Description</th>
           <th>Date</th>
           <th>Image</th>
+          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -60,6 +79,10 @@
     </table>
   </div>
 
-  <script src="../javascript/admin_page.js"></script>
 </body>
+
+<script src="../javascript/admin_page.js"></script>
+
+<script src="../javascript/navbar.js"></script>
+
 </html>

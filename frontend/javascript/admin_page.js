@@ -1,41 +1,77 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const tableBody = document.querySelector("#complaints-table tbody");
+  const token = localStorage.getItem("access_token");
 
+  // ✅ Check login and role
+  if (!token) {
+    window.location.href = "login.html";
+    return;
+  } else {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    if (payload.role !== "admin") {
+      alert("❌ You are not authorized to view this page");
+      window.location.href = "dashboard.html";
+      return;
+    }
+  }
+
+  // DOM Elements
+  const tableBody = document.querySelector("#complaints-table tbody");
   const totalCount = document.getElementById("total-count");
   const solvedCount = document.getElementById("solved-count");
   const pendingCount = document.getElementById("pending-count");
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/complaints/");
-    const complaints = await response.json();
+    const res = await fetch("http://127.0.0.1:8000/complaints/", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      }
+    });
 
-    let solved = 0;
-    let pending = 0;
+    if (!res.ok) {
+      if (res.status === 401) {
+        alert("Session expired or unauthorized. Please login again.");
+        localStorage.removeItem("access_token");
+        window.location.href = "login.html";
+      }
+      throw new Error("Failed to fetch complaints");
+    }
 
-    complaints.forEach((complaint) => {
-      // Count status
-      if (complaint.status.toLowerCase() === "solved") solved++;
+    const complaints = await res.json();
+    tableBody.innerHTML = "";
+
+    let solved = 0, pending = 0;
+
+    complaints.forEach(c => {
+      const statusText = (c.status || "Pending").toLowerCase();
+      let statusClass = "status-pending";
+
+      if (statusText === "solved") statusClass = "status-solved";
+      else if (statusText === "in progress") statusClass = "status-in-progress";
+
+      if (statusText === "solved") solved++;
       else pending++;
 
-      const row = document.createElement("tr");
-
-      row.innerHTML = `
-        <td>${complaint.id}</td>
-        <td>${complaint.problem_type}</td>
-        <td>${complaint.name || "N/A"}</td>
-        <td>${complaint.district}</td>
-        <td>${complaint.votes}</td>
-        <td>${complaint.description}</td>
-        <td>${new Date(complaint.created_at).toLocaleDateString()}</td>
-        <td>
-          <img src="${complaint.image_url ? 'http://127.0.0.1:8000/' + complaint.image_url : '../../images/icon1.png'}">
-        </td>
-        <td>
-          <button class="view-btn" onclick="location.href='complaint_status.html'">View</button>
-        </td>
+      tableBody.innerHTML += `
+        <tr>
+          <td>${c.id}</td>
+          <td>${c.problem_type}</td>
+          <td>${c.name || c.user_name || "N/A"}</td>
+          <td>${c.district}</td>
+          <td>${c.votes || 0}</td>
+          <td>${c.description}</td>
+          <td>${new Date(c.created_at).toLocaleDateString()}</td>
+          <td>
+            <img src="${c.image_url ? 'http://127.0.0.1:8000/' + c.image_url : '../images/icon1.png'}" width="50">
+          </td>
+          <td>
+            <span class="status-badge ${statusClass}">${c.status || "Pending"}</span>
+          </td>
+          <td>
+            <button class="view-btn" onclick="window.location.href='complaint_status.html?id=${c.id}'">View</button>
+          </td>
+        </tr>
       `;
-
-      tableBody.appendChild(row);
     });
 
     // Update summary counts
@@ -45,6 +81,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   } catch (error) {
     console.error(error);
-    tableBody.innerHTML = `<tr><td colspan="8">Error loading complaints</td></tr>`;
+    tableBody.innerHTML = `<tr><td colspan="10">Error loading complaints</td></tr>`;
   }
 });

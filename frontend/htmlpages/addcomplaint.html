@@ -12,30 +12,40 @@
 
 <body>
   <header>
-    <nav class="navbar">
+  <nav class="navbar">
+
+     <!-- LEFT -->
+    <div class="nav-left">
       <div class="logo">
-        <img src="../images/bgi.png" alt="Logo" height="35px" width="35px">
-        <h3 class="logo-text">Rural Resolve</h3>
+        <img src="../images/bgi.png" alt="Logo">
+        <h1 class="page-title">Rural Resolve</h1>
       </div>
 
-      <ul class="nav-links">
-        <li><a href="dashboard.html" class="active">🏠 Home</a></li>
-        <li><a href="addcomplaint.html">➕ Add Complaint</a></li>
-        <li><a href="my_complaint.html">🙋‍♀️ My Complaint</a></li>
-        <li><a href="complaint_list.html">📋 Complaint List</a></li>
-        <!-- <li><a href="#">📊 Status</a></li>
-        <li><a href="#">🔐 Admin</a></li> -->
-      </ul>
-    </nav>
-  </header>
+      <!-- MENU BUTTON (NO SPANS, NO CHECKBOX) -->
+      <button id="menuBtn" class="hamburger">☰</button>
+    </div>
 
-  <h1>Add a Complaint</h1>
+    <!-- CENTER LINKS -->
+    <ul class="nav-links">
+      <li><a href="dashboard.html" class="active">🏠 Home</a></li>
+      <li><a href="addcomplaint.html">➕ Add Complaint</a></li>
+      <li><a href="my_complaint.html">🙋‍♀️ My Complaint</a></li>
+      <li><a href="complaint_list.html">📋 Complaint List</a></li>
+    </ul>
+
+    <!-- RIGHT LINKS -->
+    <div class="nav-right">
+      <a href="logout.html" class="login-btn">Logout</a>
+    </div>
+
+  </nav>
+</header>
+
+
+  <h2>Add a Complaint</h2>
 
   <div class="class-name" id="add-complaint">
     <form>
-      <label for="name">Your Name:</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
       <label for="problem-name">Problem Type:</label>
       <select id="problem-name" name="problem-name" required>
         <option value="">-- Select Problem Type --</option>
@@ -46,8 +56,9 @@
         <option value="other">Other</option>
       </select>
 
-      <label for="photo">Upload Photo:</label>
-      <input type="file" id="photo" name="photo">
+      <label>Upload Image</label>
+      <input type="file" id="image" accept="image/*">
+
 
       <label for="description">Problem Description:</label>
       <textarea id="description" name="description" rows="4" placeholder="Describe your problem..." required></textarea>
@@ -56,13 +67,6 @@
       <label for="district">District:</label>
       <select id="district" name="district" required>
         <option value="">-- Select District --</option>
-        <option value="chennai">Chennai</option>
-        <option value="coimbatore">Coimbatore</option>
-        <option value="madurai">Madurai</option>
-        <option value="tiruchirappalli">Tiruchirappalli</option>
-        <option value="salem">Salem</option>
-        <option value="erode">Erode</option>
-        <option value="vellore">Vellore</option>
       </select>
 
       <label for="village">Village:</label>
@@ -80,5 +84,7 @@
 </body>
 
 <script src="../javascript/add_complaint.js"></script>
+
+<script src="../javascript/navbar.js"></script>
 
 </html>

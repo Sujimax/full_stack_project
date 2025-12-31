@@ -1,112 +1,46 @@
-body {
-  font-family: 'Poppins', sans-serif;
-    background: linear-gradient( #ffebd3, #f4faff);
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  text-align: center;
-  color: #007bff;
-  margin: 30px;
-  font-size: 28px;
-}
-
-/* Table Style */
-.table-container {
-  width: 95%;
-  margin: 10px auto;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
+/* ADMIN ACTION */
+#statusSelect,
+#updateStatus,
+#deleteComplaint {
+  padding: 8px 14px;
+  border-radius: 8px;
   font-size: 15px;
-  color: #171717;
-  border: 3px solid #e0e0e0;
-}
+  margin-right: 15px; }
 
-thead {
-  background: linear-gradient(to right, #0078d7, #00bfa6);
+/* Primary button */
+#updateStatus {
+  background: #22c55e;
   color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-th, td {
-  padding: 14px 12px;
-  border: 1px solid #9b9b9b;
-  text-align: center;
-}
-
-th {
-  font-weight: 600;
-}
-
-/* Images inside table */
-img {
-  width: 80px;
-  height: 60px;
-  border-radius: 6px;
-  object-fit: cover;
-  border: 1px solid #bbb;
-}
-
-/* Buttons inside table */
-.edit-btn, .delete-btn {
-  padding: 10px 10px;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
-  font-size: 15px;
-  margin: 5px;
-  color: #fff;
-  font-weight: bold;
 }
 
-.edit-btn {
-  background-color: #31b650;
-}
-.edit-btn:hover {
-  background-color: #0d8126;
+#updateStatus:hover {
+  background: #007810;
 }
 
+/* Delete button */
 .delete-btn {
-  background-color: #ff495b;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+  cursor: pointer;
 }
+
 .delete-btn:hover {
-  background-color: #b02a37;
+  background: #ef4444;
+  color: white;
 }
 
-/* ===== Status Badges (same as My Complaints page) ===== */
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: 600;
-}
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
 
-/* Pending */
-.status.pending {
-  background-color: #fde2e2;
-  color: #c62828;
-}
-
-/* In Progress */
-.status.in-progress {
-  background-color: #fff3cd;
-  color: #b26a00;
-}
-
-/* Solved */
-.status.solved {
-  background-color: #e6f4ea;
-  color: #1b7f3a;
+  /* Stack select + buttons */
+  #statusSelect,
+  #updateStatus,
+  #deleteComplaint {
+    display: block;
+    width: 100%;
+    margin: 10px;
+  }
 }

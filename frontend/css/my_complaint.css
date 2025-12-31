@@ -1,31 +1,34 @@
-/* ===== Buttons for My Complaint Page ===== */
+/* ===== MY COMPLAINT ACTION BUTTONS ===== */
 .edit-btn,
 .delete-btn {
-    padding: 10px 20px;
+    padding: 10px 22px;
     border: none;
-    border-radius: 25px;
-    font-size: 16px;
+    border-radius: 22px;
+    font-size: 15px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
     margin-top: 15px;
+    margin-right: 15px;
+    text-decoration: none;
 }
 
+/* Edit Button */
 .edit-btn {
-    background-color: #31b650;
-    color: #fff;
+    background-color: #22c55e;
+    color: #ffffff;
 }
 
 .edit-btn:hover {
-     background-color: #0d8126;   
+    background-color: #16a34a;
 }
 
+/* Delete Button */
 .delete-btn {
-    background-color: #ff3045;
-    color: white;
+    background-color: #ef4444;
+    color: #ffffff;
 }
 
 .delete-btn:hover {
-   background-color: #ff152d;
-    color: #fff;
+    background-color: #dc2626;
 }

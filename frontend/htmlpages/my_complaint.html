@@ -2,42 +2,57 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Complaints</title>
-  <link rel="icon" href="../images/bgi.png" />
-  <link rel="stylesheet" href="../css/navbar.css" />
-  <link rel="stylesheet" href="../css/my_complaint.css" />
-  <link rel="stylesheet" href="../css/both_list.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rural Resolve</title>
+  <link rel="icon" href="../images/bgi.png" alt="Village website">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/both_list.css">
+  <link rel="stylesheet" href="../css/my_complaint.css">
 </head>
 
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">
-        <img src="../images/bgi.png" alt="Logo" height="35px" width="35px">
-        <h3 class="logo-text">Rural Resolve</h3>
+
+      <!-- LEFT -->
+      <div class="nav-left">
+        <div class="logo">
+          <img src="../images/bgi.png" alt="Logo">
+          <h1 class="page-title">Rural Resolve</h1>
+        </div>
+
+        <!-- MENU BUTTON (JS BASED) -->
+        <button id="menuBtn" class="hamburger">☰</button>
       </div>
 
+      <!-- CENTER LINKS -->
       <ul class="nav-links">
         <li><a href="dashboard.html" class="active">🏠 Home</a></li>
         <li><a href="addcomplaint.html">➕ Add Complaint</a></li>
         <li><a href="my_complaint.html">🙋‍♀️ My Complaint</a></li>
         <li><a href="complaint_list.html">📋 Complaint List</a></li>
-        <!-- <li><a href="#">📊 Status</a></li>
-        <li><a href="#">🔐 Admin</a></li> -->
       </ul>
+
+      <!-- RIGHT LINKS -->
+      <div class="nav-right">
+        <a href="logout.html" class="login-btn">Logout</a>
+      </div>
+
     </nav>
   </header>
 
-  <div class="complaint-section">
-    <h1>My Complaints</h1>
-    
-  </div>
+  <main>
+    <h3>My Complaints</h3>
+    <div class="complaint-section">
+      <!-- Complaints will be loaded here by JS -->
+    </div>
+  </main>
 
-  <script src="../javascript/my_complaint.js"></script>
 </body>
 
+<script src="../javascript/my_complaint.js"></script>
+
+<script src="../javascript/navbar.js"></script>
+
 </html>
-
-

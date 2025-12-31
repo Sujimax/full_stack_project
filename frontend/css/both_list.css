@@ -1,41 +1,30 @@
-body {
-    font-family: 'Poppins', sans-serif;
-     background:  #ffe8cd;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    color: #007bff;
-    margin: 30px 0;
+/* ===== PAGE TITLE ===== */
+h3 {
+    color: #2563eb;
+    margin:20px 0;
     text-align: center;
-    font-size: 32px;
+    font-size: 28px;
 }
 
-/* ===== Complaint Card ===== */
+/* COMPLAINT STATUS BOX */
 .complaint-box {
     background-color: #ffffff;
     border-radius: 15px;
     padding: 20px;
-    width: 55%;
-    max-width: 900px;
-    margin: 20px auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
+    width: 80%;
+    max-width: 1100px;
+    margin: 30px auto;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.15);
 }
 
-.complaint-box:hover {
-    transform: translateY(-3px);
-}
-
-/* ===== Flex Layout ===== */
+/* ===== FLEX LAYOUT ===== */
 .complaint-content {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 150px;
     align-items: flex-start;
 }
 
+/* ===== DETAILS ===== */
 .details {
     flex: 1;
 }
@@ -43,54 +32,83 @@ h1 {
 .problem-title {
     font-size: 24px;
     font-weight: 600;
-    color: #007bff;
-    margin-bottom: 20px;
+    color: #1759e8;
+    margin-bottom: 17px;
 }
 
+/* SAME LINE LABEL + VALUE */
 .details p {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    margin: 12px 0;
     font-size: 16px;
-    color: #444;
-    margin: 13px 0;
+    color: #242b36;
+    line-height: 1.6;
 }
 
 .details strong {
-    display: inline-block;
-    width: 120px;
-    color: #222;
+    font-weight: 600;
+    color: #070809;
+    white-space: nowrap;
 }
 
-/* ===== Status Badges (NOT buttons) ===== */
+/* STATUS BADGES */
 .status-pending,
 .status-in-progress,
 .status-solved {
     display: inline-block;
-    padding: 6px 14px;
+    padding: 5px 14px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
+    width: fit-content;
 }
 
 .status-pending {
-    background-color: #ffe3e3;
-    color: #c62828;
+    background-color: #fee2e2;
+    color: #b91c1c;
 }
 
 .status-in-progress {
-    background-color: #fff3e0;
-    color: #e65100;
+    background-color: #ffefdc;
+    color: #c2410c;
 }
 
 .status-solved {
-    background-color: #e8f5e9;
-    color: #1b5e20;
+    background-color: #ecfdf5;
+    color: #047857;
 }
 
-/* ===== Image ===== */
+/* ===== IMAGE ===== */
+.image {
+    flex: 1;
+    display: flex;
+}
+
 .image img {
-    width: 250px;
-    height: 200px;
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
     border-radius: 10px;
     object-fit: cover;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
+/* ===== RESPONSIVE FIX (ONLY IMAGE DOWN, NO GAP) ===== */
+@media (max-width: 900px) {
 
+    .complaint-content {
+        flex-direction: column;
+        gap: 25px; 
+    }
+
+    .image img {
+        height: 280px;
+        width:260px;
+    }
+
+    .details p {
+        font-size: 15px;
+        grid-template-columns: 125px 1fr;
+    }
+}

@@ -1,34 +1,13 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(#ffebd3, #f4faff);
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
+/* ===== PAGE TITLE ===== */
+h2 {
   text-align: center;
-  color: #007bff;
+  color: #2563eb;
   margin: 30px 0;
+  font-size: 28px;
 }
 
-/* Navbar */
-.admin-navbar {
-  background: #ffffff;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-}
 
-.admin-navbar nav a {
-  margin-left: 20px;
-  color: #1e3a8a;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-/* ===== Summary Boxes ===== */
+/* ===== SUMMARY BOXES ===== */
 .summary-box {
   display: flex;
   justify-content: center;
@@ -44,73 +23,164 @@ h1 {
   padding: 25px;
   border-radius: 14px;
   text-align: center;
-  box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 }
 
 .summary-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
 .summary-card h3 {
-  color: #555;
+  color: #2b3543;
+  font-size: 18px;
 }
 
 .summary-card p {
   font-size: 26px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
-/* Colors */
 .summary-card.total p {
-  color: #007bff;
+  color: #2563eb;
 }
 
 .summary-card.resolved p {
-  color: #28a745;
+  color: #16a34a;
 }
 
 .summary-card.pending p {
-  color: #e67e22;
+  color: #ea580c;
 }
 
-/* ===== Table ===== */
+/* ===== TABLE CONTAINER ===== */
 .table-container {
-  width: 90%;
-  margin: 20px auto;
+  width: 92%;
+  margin: 30px auto;
   background: #ffffff;
-  padding: 30px;
-  border-radius: 15px;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;  
 }
 
+/* ===== TABLE ===== */
 table {
   width: 100%;
   border-collapse: collapse;
 }
 
+/* Table header */
 thead {
-  background: #3773b4;
+  background: #1c5cff;
   color: white;
 }
 
-th, td {
-  padding: 12px;
-  border: 1px solid #ccc;
+th {
+  padding: 14px 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Table body */
+td {
+  padding: 14px 12px;
+  font-size: 15px;
+  color: #232934;
+  border-bottom: 1px solid #e5e7eb;
   text-align: center;
 }
 
-img {
-  width: 70px;
-  height: 50px;
-  border-radius: 6px;
+/* Row hover - only tbody rows */
+tbody tr:hover {
+  background-color: #f1f5ff;
 }
 
-/* Button */
+/* Image in table */
+table img {
+  width: 60px;
+  height: 45px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* View button */
 .view-btn {
-  padding: 8px 15px;
-  background: #007bff;
+  padding: 6px 14px;
+  background: #cc75ff;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 20px;
+  font-size: 16px;
   cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #a914ff;
+}
+
+/* ===== STATUS BADGES ===== */
+.status-badge {
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.status-pending {
+  background-color: #ffd0d0;
+  color: #ea580c;
+}
+
+.status-in-progress {
+  background-color: #fff2ce;
+  color: #ba7f00;
+}
+
+.status-solved {
+  background-color: #d9ffe6;
+  color: #16a34a;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  .summary-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .table-container {
+    padding: 10px;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  th,
+  td {
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+
+  table img {
+    width: 45px;
+    height: 35px;
+  }
+
+  .view-btn {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .status-badge {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
 }

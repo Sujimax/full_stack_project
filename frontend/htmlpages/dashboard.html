@@ -11,22 +11,39 @@
 </head>
 
 <body>
-<header>
-  <nav class="navbar">
-    <div class="logo">
-      <img src="../images/bgi.png" alt="Logo" height="35px" width="35px">
-      <h3 class="logo-text">Rural Resolve</h3>
-    </div>
-    <ul class="nav-links">
-      <li><a href="dashboard.html" class="active">🏠 Home</a></li>
-      <li><a href="addcomplaint.html">➕ Add Complaint</a></li>
-      <li><a href="my_complaint.html">🙋‍♀️ My Complaint</a></li>
-      <li><a href="complaint_list.html">📋 Complaint List</a></li>
-      <!-- <li><a href="complaint_status.html">📊 Status</a></li>
-      <li><a href="admin.html">🔐 Admin</a></li> -->
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav class="navbar">
+
+      <!-- LEFT -->
+      <div class="nav-left">
+        <div class="logo">
+          <img src="../images/bgi.png" alt="Logo">
+          <h1 class="page-title">Rural Resolve</h1>
+        </div>
+
+        <!-- MENU BUTTON (JS BASED) -->
+        <button id="menuBtn" class="hamburger">☰</button>
+      </div>
+
+      <!-- CENTER LINKS -->
+      <ul class="nav-links">
+        <li><a href="dashboard.html" class="active">🏠 Home</a></li>
+        <li><a href="addcomplaint.html">➕ Add Complaint</a></li>
+        <li><a href="my_complaint.html">🙋‍♀️ My Complaint</a></li>
+        <li><a href="complaint_list.html">📋 Complaint List</a></li>
+      </ul>
+
+      <!-- RIGHT LINKS -->
+      <div class="nav-right">
+        <a href="#" class="language">
+          <img src="../images/translate.jpg" alt="Language">
+        </a>
+        <a href="logout.html" class="login-btn" >Logout</a>
+      </div>
+
+    </nav>
+  </header>
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -35,7 +52,10 @@
         <img src="../images/icon1.png" alt="Village illustration">
       </div>
       <div class="hero-right">
-        <h1>Welcome to <span>Rural Resolve</span></h1>
+        <h1>
+          <span class="normal-text">Welcome to </span>
+          <span class="gradient-text">Rural Resolve</span>
+        </h1>
         <p>Empowering villages through digital complaint management and civic transparency.</p>
         <div class="hero-buttons">
           <a href="addcomplaint.html"><button>Add Complaint</button></a>
@@ -46,6 +66,7 @@
   </section>
 
   <!-- info Section -->
+  <h2>Guidelines for how to use this Webiste</h2>
   <section id="add-complaint" class="info-section">
     <h3>📝 Add a Complaint</h3>
     <ol>
@@ -79,4 +100,6 @@
     <p>&copy; 2025 Rural Resolve | Empowering Villages Digitally</p>
   </footer>
 </body>
+
+<script src="../javascript/navbar.js"></script>
 </html>
